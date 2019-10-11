@@ -1,0 +1,14 @@
+{
+  "name": "cleanxml",
+  "version": "1.0.0",
+  "description": "cli to remove offending line",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "event-stream": "^4.0.1"
+  }
+}
