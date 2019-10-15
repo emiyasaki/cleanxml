@@ -15,10 +15,10 @@ def main():
     for line in fp:
       count += 1
       node = line
-      p = re.compile('[^ -~]+')
-      match = p.match(line)
-      # match = re.match('DaylightSaveInfo', line)
-      if match:
+      # p = re.search(r'[^ -~]+', line, re.A)
+      p = re.search(r'\x07', line, re.A)
+      # p = re.search('DaylightSaveInfo', line, re.I)
+      if p:
         print("line {} found, skipping".format(line.strip()))
         node = ""
       out.write(node)
