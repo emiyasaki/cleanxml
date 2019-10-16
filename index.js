@@ -16,7 +16,8 @@ fs.createReadStream(filename)
       .mapSync(line => {
         count++;
         let node = `${line}\r\n`;
-        if (line.match(/[^ -~]+/)) {
+        if (line.match(/[^ -~\s]+/)) {
+        // if (line.match(/\b[0-9A-F]{4}\b/gi)) {
           console.log(`line '${line.trim()}' found - skipping`);
           node = '';
         }
