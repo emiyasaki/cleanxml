@@ -1,6 +1,7 @@
 import sys
 import os
 import re
+import datetime
 
 def main():
   filepath = sys.argv[1]
@@ -12,6 +13,7 @@ def main():
   out = open('output' + filepath, 'w')
   with open(filepath) as fp:
     count = 1
+    start = datetime.datetime.now().replace(microsecond=0)
     for line in fp:
       count += 1
       node = line
@@ -22,7 +24,8 @@ def main():
         print("line {} found, skipping".format(line.strip()))
         node = ""
       out.write(node)
-  print('{} lines read, closing file'.format(count))
+    finish = datetime.datetime.now().replace(microsecond=0)
+  print('{} lines read in {}, closing file'.format(count, finish-start))
   out.close()
 
 if __name__ == '__main__':
